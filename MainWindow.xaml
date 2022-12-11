@@ -16,10 +16,11 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0"
-                   Text="What are your tasks for this shift?"
-        />
+                   Text="What are your tasks for this shift?"/>
 
-        <ItemsControl Grid.Row="1">
+        <ItemsControl Grid.Row="1"
+                      x:Name="ItemsList"
+                      ItemsSource="{Binding Tasks}">
             
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -29,7 +30,18 @@
 
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="Task 1"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="{Binding Name}"
+                                   Grid.Column="1"/>
+                        
+                        <CheckBox IsChecked="{Binding Checked}"
+                                  Grid.Column="0"/>
+                    </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
             
@@ -43,10 +55,14 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <TextBox Grid.Column="0"/>
-            
+            <TextBox Grid.Column="0"
+                     Text="{Binding TaskName, Mode=TwoWay,
+                            UpdateSourceTrigger=PropertyChanged}"/>
+
             <Button Grid.Column="1"
-                    Content="Add Task"/>
+                    Content="Add Task"
+                    Command="{Binding CreateTaskCommand}"
+                    CommandParameter="{Binding}"/>
             
             <Button Grid.Column="2"
                     Content="Delete Task"/>

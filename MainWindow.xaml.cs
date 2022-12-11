@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ToDoList.ViewModel;
 
 namespace ToDoList
 {
@@ -23,6 +25,11 @@ namespace ToDoList
         public MainWindow()
         {
             InitializeComponent();
+            var tasks = new TaskListViewModel();
+            tasks.Tasks = new ObservableCollection<TaskViewModel>();
+            tasks.Tasks.Add(new TaskViewModel() { Name = "Task 1", IsComplete = true });
+            tasks.Tasks.Add(new TaskViewModel() { Name = "Task 2", IsComplete = true });
+            this.DataContext = tasks;
         }
     }
 }
