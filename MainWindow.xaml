@@ -12,7 +12,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="32"/>
+            <RowDefinition Height="24"/>
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0"
@@ -57,7 +57,9 @@
 
             <TextBox Grid.Column="0"
                      Text="{Binding TaskName, Mode=TwoWay,
-                            UpdateSourceTrigger=PropertyChanged}"/>
+                            UpdateSourceTrigger=PropertyChanged}"
+                     VerticalContentAlignment="Bottom"
+                     FontSize="16"/>
 
             <Button Grid.Column="1"
                     Content="Add Task"
@@ -65,7 +67,7 @@
                     CommandParameter="{Binding}"/>
             
             <Button Grid.Column="2"
-                    Content="Delete Task"/>
+                    Content="About"/>
         </Grid>
         
         

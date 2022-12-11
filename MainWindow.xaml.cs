@@ -26,9 +26,8 @@ namespace ToDoList
         {
             InitializeComponent();
             var tasks = new TaskListViewModel();
-            tasks.Tasks = new ObservableCollection<TaskViewModel>();
             tasks.Tasks.Add(new TaskViewModel() { Name = "Task 1", IsComplete = true });
-            tasks.Tasks.Add(new TaskViewModel() { Name = "Task 2", IsComplete = true });
+            tasks.Tasks.Add(new TaskViewModel() { Name = "Task 2", IsComplete = false });
             this.DataContext = tasks;
         }
     }
