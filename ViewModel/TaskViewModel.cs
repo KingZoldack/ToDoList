@@ -8,5 +8,7 @@ namespace ToDoList.ViewModel
 {
     public class TaskViewModel
     {
+        public string Name { get; set; }
+        public bool IsComplete { get; set; }
     }
 }
