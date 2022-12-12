@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ToDoList.View;
 using ToDoList.ViewModel;
 
 namespace ToDoList
@@ -29,6 +30,7 @@ namespace ToDoList
             tasks.Tasks.Add(new TaskViewModel() { Name = "Sample Text 1", IsComplete = false});
             tasks.Tasks.Add(new TaskViewModel() { Name = "Sample Text 2", IsComplete = false });
             tasks.Tasks.Add(new TaskViewModel() { Name = "Sample Text 3", IsComplete = false });
+
             this.DataContext = tasks;
         }
 
@@ -43,7 +45,9 @@ namespace ToDoList
 
         private void aboutBtn_Click(object sender, RoutedEventArgs e)
         {
-           
+            About aboutWindow = new About();
+
+            aboutWindow.Show();
         }
     }
 }

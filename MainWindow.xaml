@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToDoList"
         mc:Ignorable="d"
+        Icon="cdw logo.ico"
         Title="To-Do List"
         ResizeMode="CanMinimize"
+        WindowStartupLocation="Manual"
         Height="480" Width="380">
     <Grid>
         <Grid.Background>
@@ -25,6 +27,7 @@
 
         <TextBlock Grid.Row="0"
                    Text="What are your tasks for this shift?"
+                   TextAlignment="Center"
                    Grid.ColumnSpan="2"
                    Background="#7FFF1919"
                    FontFamily="Montserrat"
@@ -72,9 +75,6 @@
             </ItemsControl>
         </ScrollViewer>
 
-
-
-
         <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0,394,0,0" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*"/>
@@ -114,6 +114,6 @@
                     BorderBrush="Black" Cursor="Help"/>
 
         </Grid>
-
+        
     </Grid>
 </Window>
