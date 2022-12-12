@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,6 +49,25 @@ namespace ToDoList
             About aboutWindow = new About();
 
             aboutWindow.Show();
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show(
+                    "Are you sure you would like to exit?",
+                    "Confirmation",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                e.Cancel = false;
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+            
         }
     }
 }
