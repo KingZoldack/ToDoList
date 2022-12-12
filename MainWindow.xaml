@@ -27,6 +27,7 @@
                    Text="What are your tasks for this shift?"
                    Grid.ColumnSpan="2"
                    Background="#7FFF1919"
+                   FontFamily="Montserrat"
                    FontSize="16"
                    FontWeight="Bold"/>
 
@@ -73,20 +74,31 @@
                      Text="{Binding TaskName, Mode=TwoWay,
                             UpdateSourceTrigger=PropertyChanged}"
                      VerticalContentAlignment="Bottom"
-                     FontSize="16"
-                     Background="#BFDEDEDE"/>
+                     FontSize="20"
+                     Background="#BFDEDEDE"
+                     FontWeight="Bold"
+                     FontFamily="Cooper Black"/>
 
             <Button Grid.Column="1"
                     x:Name="addTaskBtn"
                     Content="Add Task"
                     Command="{Binding CreateTaskCommand}"
                     CommandParameter="{Binding}"
-                    Click="addTaskBtn_Click"/>
+                    Click="addTaskBtn_Click"
+                    Background="#7FFF1919"
+                    FontWeight="Bold"
+                    FontFamily="Montserrat"
+                    BorderBrush="Black"
+                    Cursor="Hand"/>
 
             <Button Grid.Column="2"
                     x:Name="aboutBtn"
                     Content="About"
-                    Click="aboutBtn_Click"/>
+                    Click="aboutBtn_Click"
+                    Background="#7FFF1919"
+                    FontWeight="Bold"
+                    FontFamily="Montserrat"
+                    BorderBrush="Black" Cursor="Help"/>
 
         </Grid>
 
