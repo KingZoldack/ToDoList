@@ -22,13 +22,26 @@ namespace ToDoList
     /// </summary>
     public partial class MainWindow : Window
     {
+        TaskListViewModel tasks = new TaskListViewModel();
         public MainWindow()
         {
             InitializeComponent();
-            var tasks = new TaskListViewModel();
-            tasks.Tasks.Add(new TaskViewModel() { Name = "Task 1", IsComplete = true });
-            tasks.Tasks.Add(new TaskViewModel() { Name = "Task 2", IsComplete = false });
+            
             this.DataContext = tasks;
+        }
+
+        private void addTaskBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (String.IsNullOrEmpty(inputTb.Text) || String.IsNullOrWhiteSpace(inputTb.Text))
+            {
+                MessageBox.Show("You have added a blank task!", "Alert", MessageBoxButton.OK,
+                                MessageBoxImage.Exclamation);
+            }
+        }
+
+        private void aboutBtn_Click(object sender, RoutedEventArgs e)
+        {
+           
         }
     }
 }

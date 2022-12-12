@@ -24,6 +24,7 @@ namespace ToDoList.Command
             {
                 taskList.Tasks.Add(new TaskViewModel() { Name = taskList.TaskName, IsComplete = false });
             }
+
         }
     }
 }

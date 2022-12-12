@@ -5,23 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToDoList"
         mc:Ignorable="d"
-        Title="MainWindow"
-        Height="450" Width="450">
+        Title="To-Do List"
+        ResizeMode="CanMinimize"
+        Height="480" Width="360">
     <Grid>
-        
+        <Grid.Background>
+            <ImageBrush ImageSource="/cdw logo.png" Opacity="0.5"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <!--<ColumnDefinition Width="53*"/>
+            <ColumnDefinition Width="37*"/>-->
+        </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="13*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="24"/>
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0"
-                   Text="What are your tasks for this shift?"/>
+                   Text="What are your tasks for this shift?"
+                   Grid.ColumnSpan="2"
+                   Background="#7FFF1919"
+                   FontSize="16"
+                   FontWeight="Bold"/>
 
         <ItemsControl Grid.Row="1"
                       x:Name="ItemsList"
-                      ItemsSource="{Binding Tasks}">
-            
+                      ItemsSource="{Binding Tasks}" Grid.ColumnSpan="2">
+
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <VirtualizingStackPanel Orientation="Vertical"/>
@@ -38,17 +50,18 @@
 
                         <TextBlock Text="{Binding Name}"
                                    Grid.Column="1"/>
-                        
-                        <CheckBox IsChecked="{Binding Checked}"
+
+                        <CheckBox x:Name="cbItem"
+                                  IsChecked="{Binding Checked}"
                                   Grid.Column="0"/>
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
-            
+
         </ItemsControl>
 
 
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0,394,0,0" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="*"/>
@@ -56,21 +69,26 @@
             </Grid.ColumnDefinitions>
 
             <TextBox Grid.Column="0"
+                     x:Name="inputTb"
                      Text="{Binding TaskName, Mode=TwoWay,
                             UpdateSourceTrigger=PropertyChanged}"
                      VerticalContentAlignment="Bottom"
-                     FontSize="16"/>
+                     FontSize="16"
+                     Background="#BFDEDEDE"/>
 
             <Button Grid.Column="1"
+                    x:Name="addTaskBtn"
                     Content="Add Task"
                     Command="{Binding CreateTaskCommand}"
-                    CommandParameter="{Binding}"/>
-            
+                    CommandParameter="{Binding}"
+                    Click="addTaskBtn_Click"/>
+
             <Button Grid.Column="2"
-                    Content="About"/>
+                    x:Name="aboutBtn"
+                    Content="About"
+                    Click="aboutBtn_Click"/>
+
         </Grid>
-        
-        
 
     </Grid>
 </Window>
