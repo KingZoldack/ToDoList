@@ -26,7 +26,9 @@ namespace ToDoList
         public MainWindow()
         {
             InitializeComponent();
-            
+            tasks.Tasks.Add(new TaskViewModel() { Name = "Sample Text 1", IsComplete = false});
+            tasks.Tasks.Add(new TaskViewModel() { Name = "Sample Text 2", IsComplete = false });
+            tasks.Tasks.Add(new TaskViewModel() { Name = "Sample Text 3", IsComplete = false });
             this.DataContext = tasks;
         }
 
