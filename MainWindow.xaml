@@ -14,10 +14,6 @@
         <Grid.Background>
             <ImageBrush ImageSource="/cdw logo.png" Opacity="0.5"/>
         </Grid.Background>
-        <Grid.ColumnDefinitions>
-            <!--<ColumnDefinition Width="53*"/>
-            <ColumnDefinition Width="37*"/>-->
-        </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
